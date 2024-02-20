@@ -1,21 +1,21 @@
 <?php
-
+// Déclaration du mode strict des types
 declare(strict_types=1);
 
+// Importation de la classe de base pour les tests unitaires de PHPUnit
 use PHPUnit\Framework\TestCase;
 
 class UserTest extends TestCase
 {
     public function testCanBeCreatedFromValidAttribute(): void
     {
+        // test de création d'une instance user avec des valeurs valides
         $firstName = "valid firstName";
         $lastName = "valid lastName";
         $email = "example@gmail.com";
         $password = "MamanRosa1.&";
         $roles = ["ANONYMOUS"];
       
-        
-        
         $user = User::ensureIsValidUser( $firstName, $lastName, $email, $password, $roles);
         
         $this->assertInstanceOf(User::class, $user);
